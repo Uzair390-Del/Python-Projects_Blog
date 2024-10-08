@@ -1,0 +1,38 @@
+/* General Typography */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar-brand {
+    font-weight: bold;
+    color: #28a745 !important;
+}
+
+.nav-link {
+    color: #555 !important;
+}
+
+.nav-link:hover {
+    color: #28a745 !important;
+}
+
+/* Card Styles */
+.card {
+    border: none;
+}
+
+.card-title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.card-title a:hover {
+    color: #28a745;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #f8f9fa;
+    border-top: 1;
+}

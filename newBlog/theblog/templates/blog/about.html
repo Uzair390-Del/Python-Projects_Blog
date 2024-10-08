@@ -1,0 +1,233 @@
+{% load static %}
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>About Us</h1>
+    <p>This blog is written and maintained by three authors:</p>
+    <ul>
+        <li>Uzair Hassan</li>
+        <li>Zia Ur Rehman</li>
+        <li>Saif Ul Islam</li>
+    </ul>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .about-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .about-section h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .author-card {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .author-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .author-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info {
+            flex: 1;
+        }
+
+        .author-info h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .author-info p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .author-links {
+            margin-top: 10px;
+        }
+
+        .author-links a {
+            text-decoration: none;
+            color: #0077b5;
+            margin-right: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .author-links a:hover {
+            color: #005582;
+        }
+
+        .author-details {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            color: #333;
+        }
+
+        .show-more {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #0077b5;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .show-more:hover {
+            background-color: #005582;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="about-section">
+            <h1>About Us</h1>
+            <p>Meet our team of authors and contributors.</p>
+        </div>
+
+        <!-- Author 1 -->
+        <div class="author-card">
+            <div class="author-img">
+                <img src="{% static 'images/uzair.jpg' %}" alt="Uzair Hassan">
+            </div>
+            <div class="author-info">
+                <h2>Uzair Hassan</h2>
+                <p>Researcher in Green AI, Sustainable Computing, and Machine Learning.</p>
+                <div class="author-links">
+                    <a href="https://www.linkedin.com/in/uzair-hassan-6aa290194/" target="_blank">LinkedIn</a>
+                    <a href="#">Research History</a>
+                </div>
+                <div class="author-details" id="uzair-details">
+                    <p><strong>Education:</strong> MS in AI from IST, PhD Candidate at University of Warwick.</p>
+                    <p><strong>Research Interests:</strong> AI Energy Efficiency, Parallel Computing, Green Computing.</p>
+                    <p><strong>Publications:</strong> Several papers on AI sustainability and parallel computing.</p>
+                </div>
+                <span class="show-more" data-target="uzair-details">Show More</span>
+            </div>
+        </div>
+
+        <!-- Author 2 -->
+        <div class="author-card">
+            <div class="author-img">
+                <img src="{% static 'images/zia.jpg' %}" alt="Zia Ur Rehman">
+            </div>
+            <div class="author-info">
+                <h2>Zia Ur Rehman</h2>
+                <p>Expert in Distributed Systems and Machine Learning Efficiency.</p>
+                <div class="author-links">
+                    <a href="https://www.linkedin.com/in/zia-ur-rehman/" target="_blank">LinkedIn</a>
+                    <a href="#">Research History</a>
+                </div>
+                <div class="author-details" id="zia-details">
+                    <p><strong>Education:</strong> MS in CS from IST, PhD Candidate at Aarhus University.</p>
+                    <p><strong>Research Interests:</strong> Distributed AI, AI Scalability, MPI-driven Parallelization.</p>
+                    <p><strong>Publications:</strong> Numerous publications on parallel AI and distributed learning.</p>
+                </div>
+                <span class="show-more" data-target="zia-details">Show More</span>
+            </div>
+        </div>
+
+        <!-- Author 3 -->
+        <div class="author-card">
+            <div class="author-img">
+                <img src="{% static 'images/saif.jpg' %}" alt="Saif Ul Islam">
+            </div>
+            <div class="author-info">
+                <h2>Saif Ul Islam</h2>
+                <p>Professor of AI at University of Warwick, specializing in Cloud AI systems.</p>
+                <div class="author-links">
+                    <a href="https://www.linkedin.com/in/saif-ul-islam/" target="_blank">LinkedIn</a>
+                    <a href="#">Research History</a>
+                </div>
+                <div class="author-details" id="saif-details">
+                    <p><strong>Education:</strong> PhD in AI from University of Warwick.</p>
+                    <p><strong>Research Interests:</strong> Cloud AI Systems, Sustainable Computing, AI Optimization.</p>
+                    <p><strong>Publications:</strong> Over 100 papers on AI systems and cloud sustainability.</p>
+                </div>
+                <span class="show-more" data-target="saif-details">Show More</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle author details visibility
+        document.querySelectorAll('.show-more').forEach(button => {
+            button.addEventListener('click', () => {
+                const target = document.getElementById(button.dataset.target);
+                if (target.style.display === 'none' || !target.style.display) {
+                    target.style.display = 'block';
+                    button.textContent = 'Show Less';
+                } else {
+                    target.style.display = 'none';
+                    button.textContent = 'Show More';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
