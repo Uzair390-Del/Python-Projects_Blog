@@ -1,38 +1,54 @@
-/* General Typography */
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
-/* Navbar Styling */
 .navbar-brand {
     font-weight: bold;
-    color: #28a745 !important;
+    color: #2C7A7B !important;
 }
 
 .nav-link {
-    color: #555 !important;
+    color: #2C7A7B !important;
 }
 
-.nav-link:hover {
-    color: #28a745 !important;
+.jumbotron {
+    background-color: #3a7a89;
+    color: white;
 }
 
-/* Card Styles */
-.card {
-    border: none;
+h1, h2, h3, h4, h5 {
+    color: #2C7A7B;
 }
 
 .card-title a {
-    color: #333;
     text-decoration: none;
+    color: #2C7A7B;
 }
 
-.card-title a:hover {
-    color: #28a745;
+.card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-/* Footer Styles */
+.card-body {
+    padding: 15px;
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 .footer {
-    background-color: #f8f9fa;
-    border-top: 1;
+    background-color: #2C7A7B;
+    color: white;
+    padding: 15px;
+    margin-top: 40px;
+}
+
+.footer a {
+    color: #FFD700;
 }

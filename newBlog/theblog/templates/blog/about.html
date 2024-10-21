@@ -1,27 +1,10 @@
 {% load static %}
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>About Us</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h1>About Us</h1>
-    <p>This blog is written and maintained by three authors:</p>
-    <ul>
-        <li>Uzair Hassan</li>
-        <li>Zia Ur Rehman</li>
-        <li>Saif Ul Islam</li>
-    </ul>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
         /* Basic reset */
@@ -217,8 +200,8 @@
         // JavaScript to toggle author details visibility
         document.querySelectorAll('.show-more').forEach(button => {
             button.addEventListener('click', () => {
-                const target = document.getElementById(button.dataset.target);
-                if (target.style.display === 'none' || !target.style.display) {
+                const target = document.getElementById(button.getAttribute('data-target'));
+                if (target.style.display === 'none' || target.style.display === '') {
                     target.style.display = 'block';
                     button.textContent = 'Show Less';
                 } else {
@@ -230,4 +213,3 @@
     </script>
 </body>
 </html>
-
