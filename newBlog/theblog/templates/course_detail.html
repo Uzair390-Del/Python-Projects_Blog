@@ -1,0 +1,12 @@
+{% block content %}
+<div class="container">
+    <h1>{{ course.title }}</h1>
+    <p>{{ course.description }}</p>
+    <h4>Course Material</h4>
+    <ul>
+        {% for material in course.materials.all %}
+        <li><a href="{{ material.file.url }}">{{ material.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

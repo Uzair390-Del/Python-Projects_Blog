@@ -12,7 +12,10 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Energy Efficient AI</a>
+        <!-- Logo & Branding -->
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'images/logo.png' %}" alt="Energy Efficient AI Logo" style="height:40px;">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -25,9 +28,14 @@
                     <a class="nav-link" href="{% url 'about' %}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="#">Courses</a>
                 </li>
             </ul>
+            <!-- Search Bar -->
+            <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'search' %}">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 
@@ -70,6 +78,13 @@
                     </div>
                     {% endfor %}
                 </div>
+
+                <!-- Social Media Integration -->
+                <div class="share-buttons">
+                    <a href="https://twitter.com/intent/tweet?text={{ post.title }} - {{ post.get_absolute_url }}" target="_blank" class="btn btn-outline-primary">Share on Twitter</a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u={{ post.get_absolute_url }}" target="_blank" class="btn btn-outline-primary">Share on Facebook</a>
+                </div>
+
             </div>
 
             <!-- Sidebar -->
@@ -99,9 +114,14 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Footer with Newsletter Subscription -->
     <footer class="footer bg-light text-center py-3 mt-5">
         <p>&copy; 2024 Energy Efficient AI Blog | All rights reserved.</p>
+        <form action="{% url 'subscribe' %}" method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

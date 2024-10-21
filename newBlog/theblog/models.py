@@ -14,5 +14,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+class Course(models.Model):
+    title = models.CharField(max_length=200)
+    description = models.TextField()
 
+class Material(models.Model):
+    course = models.ForeignKey(Course, related_name='materials', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    file = models.FileField(upload_to='course_materials/')
 # Create your models here.

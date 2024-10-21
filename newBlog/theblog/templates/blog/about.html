@@ -19,6 +19,19 @@
             background-color: #f4f4f9;
             color: #333;
         }
+            .navbar-brand {
+        font-weight: bold;
+        color: #2C7A7B !important;
+        }
+
+         .nav-link {
+        color: #2C7A7B !important;
+      }
+
+         .jumbotron {
+        background-color: #3a7a89;
+        color: white;
+    }
 
         .container {
             max-width: 1200px;
@@ -127,6 +140,26 @@
 </head>
 <body>
     <div class="container">
+        <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Energy Efficient AI</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Courses</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
         <div class="about-section">
             <h1>About Us</h1>
             <p>Meet our team of authors and contributors.</p>
