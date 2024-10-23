@@ -33,13 +33,16 @@ def search(request):
     else:
         results = Post.objects.none()
     return render(request, 'blog/search_results.html', {'results': results, 'query': query})
-def courses_list(request):
+def courses(request):
     courses = Course.objects.all()
-    return render(request, 'blog/courses.html', {'courses': courses})
+    return render(request, 'courses.html', {'courses': courses})
+def courses_list(request):
+    courses = Course.objects.all()  # Fetch all courses from the database
+    return render(request, 'courses.html', {'courses': courses})
 
-def course_detail(request, pk):
-    course = get_object_or_404(Course, pk=pk)
-    return render(request, 'blog/course_detail.html', {'course': course})
+def course_detail(request, course_id):
+    course = get_object_or_404(Course, pk=course_id)
+    return render(request, 'course_detail.html', {'course': course})
 def subscribe(request):
     if request.method == 'POST':
         email = request.POST.get('email')
