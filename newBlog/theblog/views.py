@@ -9,7 +9,7 @@
 #     post = get_object_or_404(Post, pk=pk)
 #     return render(request, 'blog/post_detail.html', {'post': post})
 from django.shortcuts import render,get_object_or_404
-from .models import Post
+from .models import Post, Course
 #from django.http import HttpResponse
 from django.core.mail import send_mail
 from django.conf import settings
@@ -33,6 +33,13 @@ def search(request):
     else:
         results = Post.objects.none()
     return render(request, 'blog/search_results.html', {'results': results, 'query': query})
+def courses_list(request):
+    courses = Course.objects.all()
+    return render(request, 'blog/courses.html', {'courses': courses})
+
+def course_detail(request, pk):
+    course = get_object_or_404(Course, pk=pk)
+    return render(request, 'blog/course_detail.html', {'course': course})
 def subscribe(request):
     if request.method == 'POST':
         email = request.POST.get('email')

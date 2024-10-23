@@ -1,0 +1,41 @@
+{% load static %} 
+{% block content %}
+<div class="container">
+    <h1>{{ course.title }}</h1>
+    <p>{{ course.description }}</p>
+
+    <h4>Course Materials</h4>
+    <ul class="list-group">
+        {% for material in course.materials.all %}
+        <li class="list-group-item">
+            <p>{{ material.title }}</p>
+
+            <!-- Handling PDF preview -->
+            {% if material.file.url|endswith:".pdf" %}
+                <iframe src="{{ material.file.url }}" width="100%" height="600px"></iframe>
+
+            <!-- Handling image preview -->
+            {% elif material.file.url.endswith:".jpg" or material.file.url.endswith:".png" or material.file.url.endswith:".jpeg" %}
+                <img src="{{ material.file.url }}" alt="{{ material.title }}" class="img-fluid" style="max-width: 100%; height: auto;">
+
+            <!-- Handling Markdown file preview -->
+            {% elif material.file.url.endswith:".md" %}
+                <iframe src="{{ material.file.url }}" width="100%" height="600px"></iframe>
+
+            <!-- Handling text file preview -->
+            {% elif material.file.url.endswith:".txt" %}
+                <pre>{{ material.file.read }}</pre>
+
+            <!-- For other formats, provide a download link -->
+            {% else %}
+                <a href="{{ material.file.url }}" target="_blank">Download {{ material.title }}</a>
+            {% endif %}
+        </li>
+        {% empty %}
+        <li class="list-group-item">No materials available for this course.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+
+
